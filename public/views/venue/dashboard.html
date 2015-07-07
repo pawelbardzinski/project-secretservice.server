@@ -1,0 +1,123 @@
+<div class="page page-dashboard">
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- stats -->
+            <div class="row">
+                <div class="col-xsm-3">
+                    <div class="panel mini-box">
+                        <span class="box-icon rounded bg-success">
+                            <i class="fa fa-shopping-cart"></i>
+                        </span>
+                        <div class="box-info">
+                            <p class="size-h2">4,120</p>
+                            <p class="text-muted"><span data-i18n="New Orders"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xsm-3">
+                    <div class="panel mini-box">
+                        <span class="box-icon rounded bg-info">
+                            <i class="fa fa-shopping-cart"></i>
+                        </span>
+                        <div class="box-info">
+                            <p class="size-h2">352</p>
+                            <p class="text-muted"><span data-i18n="Ready for Pick Up"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xsm-3">
+                    <div class="panel mini-box">
+                        <span class="box-icon rounded bg-warning">
+                            <i class="fa fa-shopping-cart"></i>
+                        </span>
+                        <div class="box-info">
+                            <p class="size-h2">4,120</p>
+                            <p class="text-muted"><span data-i18n="On the way"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xsm-3">
+                    <div class="panel mini-box">
+                        <span class="box-icon rounded bg-danger">
+                            <i class="fa fa-shopping-cart"></i>
+                        </span>
+                        <div class="box-info">
+                            <p class="size-h2">313</p>
+                            <p class="text-muted"><span data-i18n="Completed"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end stats -->
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Completed and Canceled</strong></div>
+        <div class="panel-body" data-ng-controller="flotChartCtrl">
+            <div data-flot-chart
+                 data-data="line1.data"
+                 data-options="line1.options"
+                 style="width: 100%; height: 300px;"></div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Orders by Wait Staff</strong></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Count</th>
+                    <th>Sales</th>
+                    <th>Tips</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>10</td>
+                    <td>$33.00</td>
+                    <td>$5.00</td>
+                </tr>
+                <tr>
+                    <td>Jane</td>
+                    <td>10</td>
+                    <td>$33.00</td>
+                    <td>$5.00</td>
+                </tr>
+                <tr>
+                    <td>Bill</td>
+                    <td>10</td>
+                    <td>$33.00</td>
+                    <td>$5.00</td>
+                </tr>
+                <tr>
+                    <td>Kim</td>
+                    <td>10</td>
+                    <td>$33.00</td>
+                    <td>$5.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!--     <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Line and Area Chart</h3>
+            </div>
+            <div class="panel-body" data-ng-controller="morrisChartCtrl">
+                <div morris-chart
+                     data-data="combo1.data"
+                     data-type="combo1.type"
+                     data-options="combo1.options"
+                     ></div>
+            </div>
+        </div> -->
+
+</div>
+  

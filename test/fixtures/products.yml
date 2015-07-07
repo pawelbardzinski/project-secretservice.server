@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bud_light:
+  name: Bud Light
+  price: 1.00
+  rating: 3
+  venue: kirkwood_station_brewing_company
+
+bud_select:
+  name: Bud Select
+  price: 2.00
+  rating: 3.5
+  venue: kirkwood_station_brewing_company
+
+budweiser:
+  name: Budweiser
+  price: 3.00
+  rating: 3
+  venue: kirkwood_station_brewing_company
+
+
+slso_budweiser:
+  name: Budweiser
+  price: 4.00
+  rating: 3
+  venue: st_louis_symphony_orchestra

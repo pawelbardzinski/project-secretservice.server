@@ -1,0 +1,19 @@
+﻿.non-display {
+  display: none;
+}
+.page {
+  padding: 15px;
+}
+.page .error-list {
+  list-style-type: none;
+}
+.page-form-ele h3 {
+  margin: 0;
+}
+.ng-invalid.ng-dirty {
+  border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+  border-color: #78FA89;
+}
+/*# sourceMappingURL=pages.css.map */

@@ -1,0 +1,60 @@
+<div class="page modal-product">
+    <section>
+        <form class="form-horizontal" name="productForm" role="form" novalidate data-ng-submit="productForm.$valid && (product.id || uploader.queue.length>0) && save()">
+            <header class="modal-header">
+                <h3 class="modal-title">{{Title}}</h3>
+            </header>
+            <div class="modal-body">
+                <ul class="error-list">
+                    <li class="alert alert-danger" data-ng-repeat="error in validation_errors">{{error}}</li>
+                </ul>
+                <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Name</label>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" data-ng-model="product.name" required>
+                        <div class="text-danger" ng-show="submitted || (productForm.inputName.$dirty && productForm.inputName.$invalid)">
+                            <span ng-show="productForm.inputName.$error.required">Name is required.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPrice" class="col-sm-2 control-label">Price</label>
+                    <div class="col-xs-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="number" class="form-control" id="inputPrice" name="inputPrice" placeholder="Price" data-ng-model="product.price" required>
+                        </div>
+                        <div class="text-danger" ng-show="submitted || (productForm.inputPrice.$dirty && productForm.inputPrice.$invalid)">
+                            <span ng-show="productForm.inputPrice.$error.required">Price is required.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputImage" class="col-sm-2 control-label">Image</label>
+                    <div class="col-xs-3">
+                        <span class="form-control" data-ng-bind="uploader.queue[0].file.name" />
+                        <div class="text-danger" ng-show="submitted ">
+                            <span ng-show="(!product.id && uploader.queue.length==0)">Image is required.</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-7">
+                        <span class="btn btn-success fileinput-button">
+                            <i class="glyphicon glyphicon-upload"></i>
+                            <span>Upload image (png)</span>
+                            <div>
+                                <input class="fileinput-button" type="file" nv-file-select uploader="uploader" filters="imageFilter" />
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <div >
+                    <img data-ng-show="product.id" ng-src="{{imagePath}}" />
+                </div>
+            </div>
+            <footer class="modal-footer">
+                <button class="btn btn-primary" type="submit" ng-click="submitted=true">Save</button>
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            </footer>
+        </form>
+    </section>
+</div>

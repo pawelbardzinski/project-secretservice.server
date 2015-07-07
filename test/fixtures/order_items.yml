@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+order_one_item_one:
+  price: 1.5
+  quantity: 1
+  order: one
+  product: bud_light
+
+order_one_item_two:
+  price: 1.5
+  quantity: 1
+  order: one
+  product: bud_light
+
+
+order_two_item_one:
+  price: 1.5
+  quantity: 1
+  order: two
+  product: bud_light
+
+order_two_item_two:
+  price: 1.5
+  quantity: 1
+  order: two
+  product: bud_light

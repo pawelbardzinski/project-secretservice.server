@@ -1,0 +1,62 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_status: 1
+  last_4: 1234
+  credit_card_brand: VISA
+  user: one
+  location: Section YY, Row 99, Seat 88
+  venue: kirkwood_station_brewing_company
+
+
+two:
+  order_status: 1
+  last_4: 1234
+  credit_card_brand: VISA
+  user: one
+  location: Section ZZ, Row 77, Seat 66
+  venue: kirkwood_station_brewing_company
+
+
+
+assigned_order_one:
+  order_status: 1
+  last_4: 1234
+  credit_card_brand: VISA
+  user: one
+  location: Section ZZ, Row 77, Seat 66
+  venue_user_id: waiter
+  venue: kirkwood_station_brewing_company
+
+
+
+assigned_order_two:
+  order_status: 1
+  last_4: 1234
+  credit_card_brand: VISA
+  user: one
+  location: Section ZZ, Row 77, Seat 66
+  venue_user_id: waiter
+  venue: kirkwood_station_brewing_company
+
+
+assigned_order_three:
+  order_status: 1
+  last_4: 1234
+  credit_card_brand: VISA
+  user: one
+  location: Section ZZ, Row 77, Seat 66
+  venue_user_id: waiter_2
+  venue: kirkwood_station_brewing_company
+
+
+
+assigned_order_four:
+  order_status: 1
+  last_4: 1234
+  credit_card_brand: VISA
+  user: one
+  location: Section ZZ, Row 77, Seat 66
+  venue_user_id: waiter_2
+  venue: kirkwood_station_brewing_company
+

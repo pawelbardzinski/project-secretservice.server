@@ -1,0 +1,111 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: one
+  lastname: MyString
+  email: one@example.com
+  mobile: 2125551212
+  role: 1
+  auth_token: test1
+  password_digest: $2a$10$ueZ5.9oxlhg9X8K.cdkNhu2IRwt7O1rM8q7cmSoF2RJAZB2D26nlq
+  token_expiration: 2099/1/1
+  archived: false
+
+two:
+  firstname: two
+  lastname: MyString
+  email: two@example.com
+  mobile: 2125551333
+  role: 1
+  auth_token: test2
+  password_digest: $2a$10$ueZ5.9oxlhg9X8K.cdkNhu2IRwt7O1rM8q7cmSoF2RJAZB2D26nlq
+  token_expiration: 2099/1/1
+  archived: false
+
+tokenexpired:
+  firstname: token
+  lastname: expired
+  email: tokenexpired@example.com
+  mobile: 2125551444
+  role: 1
+  auth_token: test3
+  password_digest: $2a$10$ueZ5.9oxlhg9X8K.cdkNhu2IRwt7O1rM8q7cmSoF2RJAZB2D26nlq
+  token_expiration: 2014/1/1
+  archived: false
+
+
+greg:
+  firstname: Greg
+  lastname: Brandt
+  email: greg.brandt@gmail.com
+  mobile: 6512357995
+  role: 1
+  auth_token: test4
+  password_digest: $2a$10$ueZ5.9oxlhg9X8K.cdkNhu2IRwt7O1rM8q7cmSoF2RJAZB2D26nlq
+  token_expiration: 2099/1/1
+  archived: false
+
+
+waiter:
+  firstname: waiter
+  lastname: user
+  email: waiter@hihay.com
+  mobile: 2125558888
+  role: 2
+  auth_token: test5
+  password_digest: $2a$10$ueZ5.9oxlhg9X8K.cdkNhu2IRwt7O1rM8q7cmSoF2RJAZB2D26nlq
+  token_expiration: 2099/1/1
+  archived: false
+  venue: kirkwood_station_brewing_company
+
+
+
+waiter_2:
+  firstname: waiter2
+  lastname: user
+  email: waiter2@hihay.com
+  mobile: 2125558888
+  role: 2
+  auth_token: test6
+  password_digest: $2a$10$ueZ5.9oxlhg9X8K.cdkNhu2IRwt7O1rM8q7cmSoF2RJAZB2D26nlq
+  token_expiration: 2099/1/1
+  archived: false
+  venue: kirkwood_station_brewing_company
+
+stlo_waiter:
+  firstname: waiter
+  lastname: user
+  email: stlowaiter@hihay.com
+  mobile: 2125558888
+  role: 2
+  auth_token: test7
+  password_digest: $2a$10$ueZ5.9oxlhg9X8K.cdkNhu2IRwt7O1rM8q7cmSoF2RJAZB2D26nlq
+  token_expiration: 2099/1/1
+  archived: false
+  venue: st_louis_symphony_orchestra
+
+venue_admin:
+  firstname: venue
+  lastname: admin
+  email: venue@hiyah.com
+  mobile: 2125557777
+  role: 4
+  auth_token: test9
+  password_digest: $2a$10$ueZ5.9oxlhg9X8K.cdkNhu2IRwt7O1rM8q7cmSoF2RJAZB2D26nlq
+  token_expiration: 2099/1/1
+  archived: false
+  venue: kirkwood_station_brewing_company
+
+
+
+admin:
+  firstname: hiyah
+  lastname: admin
+  email: admin@hiyah.com
+  mobile: 2125556666
+  role: 8
+  auth_token: test10
+  password_digest: $2a$10$ueZ5.9oxlhg9X8K.cdkNhu2IRwt7O1rM8q7cmSoF2RJAZB2D26nlq
+  token_expiration: 2099/1/1
+  archived: false
+

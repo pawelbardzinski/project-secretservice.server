@@ -1,0 +1,93 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+kirkwood_station_brewing_company:
+  name: Kirkwood Station Brewing Company
+  latitude: 38.582052
+  longitude: -90.406120
+  address_line_1: 105 E Jefferson Ave
+  address_line_2:
+  city: Saint Louis
+  state: MO
+  zip_code: 63122
+  country: US
+  archived: false
+
+arts_theatre_in_excellence:
+  name: Arts Theatre In Excellence
+  latitude: 38.592949
+  longitude: -90.003075
+  address_line_1: 10314 Lincoln Trail
+  address_line_2:
+  city: Fairview Heights
+  state: IL
+  zip_code: 62208
+  country: US
+  archived: false
+
+st_louis_symphony_orchestra:
+  name: St Louis Symphony Orchestra
+  latitude: 38.640163
+  longitude: -90.230837
+  address_line_1: 718 N Grand Blvd
+  address_line_2:
+  city: Saint Louis
+  state: MO
+  zip_code: 63103
+  country: US
+  archived: false
+
+the_firebird:
+  name: The Firebird
+  latitude: 38.633869
+  longitude: -90.216621
+  address_line_1: 2706 Olive St
+  address_line_2:
+  city: Saint Louis
+  state: MO
+  zip_code: 63103
+  country: US
+  archived: false
+
+the_fox_theatre:
+  name: The Fox Theatre
+  latitude: 38.638630
+  longitude: -90.231841
+  address_line_1: 527 N Grand Blvd
+  address_line_2:
+  city: Saint Louis
+  state: MO
+  zip_code: 63103
+  country: US
+  archived: false
+
+windows_on_washington:
+  name: Windows On Washington
+  latitude: 38.632951
+  longitude: -90.201711
+  address_line_1: 1601 Washington Ave
+  address_line_2:
+  city: Saint Louis
+  state: MO
+  zip_code: 63103
+  country: US
+  archived: false
+
+
+
+archivedVenue:
+  name: Archived
+  latitude: 1.0000
+  longitude: 1.0000
+  address_line_1: 100 Test
+  address_line_2:
+  city: Saint Louis
+  state: MO
+  zip_code: 63122
+  country: US
+  archived: true
+
+
+
+
+
+

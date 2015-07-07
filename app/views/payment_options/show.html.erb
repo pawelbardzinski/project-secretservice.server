@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Last 4:</strong>
+  <%= @payment_option.last_4 %>
+</p>
+
+<p>
+  <strong>Credit card brand:</strong>
+  <%= @payment_option.credit_card_brand %>
+</p>
+<p>
+  <strong>User Id:</strong>
+  <%= @payment_option.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_payment_option_path(@payment_option) %> |
+<%= link_to 'Back', payment_options_path %>

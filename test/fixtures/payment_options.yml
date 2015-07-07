@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+visa_1234:
+  last_4: 1234
+  credit_card_brand: VISA
+  payment_identifier: 444444441234
+  payment_type: 1
+  user: one
+
+visa_4242:
+  last_4: 4242
+  credit_card_brand: VISA
+  payment_identifier: 444444444242
+  payment_type: 1
+  user: one
+
+
+visa_1111_for_order_tests:
+  last_4: 1111
+  credit_card_brand: VISA
+  payment_identifier: 444444441111
+  payment_type: 1
+  user: one

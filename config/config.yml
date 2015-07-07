@@ -1,0 +1,21 @@
+default: &default
+  mail_from: support@hiyah.com
+  password_reset_url: http://localhost:3000/#/resetpassword/
+  sms_account_sid: AC84014b3e95f61b7013cf3cc53c0d2fac
+  sms_auth_token: 97557e4bb49457d9e37ccefa77bd0747
+  sms_from: +15005550006
+
+development:
+  <<: *default
+
+
+test:
+  <<: *default
+
+
+production:
+  <<: *default
+  password_reset_url: http://secretserver.lelander.com/#/resetpassword/
+  sms_account_sid: AC8f1e34c3093eea6bcd01c1733c0f8e6b
+  sms_auth_token: 304388a9dcc115d84408ef0d020c9de3
+  sms_from: +17639511602

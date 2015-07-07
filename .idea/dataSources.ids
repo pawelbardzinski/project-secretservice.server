@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails project-secretservice.server: development" uuid="ed065478-d693-4326-9700-d00ad8480ac9">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails project-secretservice.server: test" uuid="bb8d335c-44c1-4e09-82e0-3391f29b289e">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails project-secretservice.server: production" uuid="87e32ee0-9fb7-4397-a102-0c02df1d156c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

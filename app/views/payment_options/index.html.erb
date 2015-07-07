@@ -1,0 +1,29 @@
+<h1>Listing payment_options</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Last 4</th>
+      <th>Credit card brand</th>
+      <th>User Id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payment_options.each do |payment_option| %>
+      <tr>
+        <td><%= payment_option.last_4 %></td>
+        <td><%= payment_option.credit_card_brand %></td>
+        <td><%= payment_option.user_id %></td>
+        <td><%= link_to 'Show', payment_option %></td>
+        <td><%= link_to 'Edit', edit_payment_option_path(payment_option) %></td>
+        <td><%= link_to 'Destroy', payment_option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Payment option', new_payment_option_path %>
