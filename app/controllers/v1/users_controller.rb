@@ -78,7 +78,7 @@ class V1::UsersController < ApiApplicationController
 
   # GET /v1/users/1
   def index
-    return render json: [@current_user] unless @current_user.role != 1
+    return render json: [@current_user] if @current_user.role != 8
     users = if @current_user.venue_id then User.where(venue_id: @current_user.venue_id,archived:false) else User.where(archived:false) end
     # if params[:role]
     #   users = users.where('role & ? > 0', params[:role])
