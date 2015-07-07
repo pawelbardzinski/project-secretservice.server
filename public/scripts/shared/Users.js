@@ -47,16 +47,16 @@
       load = function() {
         var params;
         params = null;
-        if (Auth.getCurrentUser().role.bitMask & routingConfig.userRoles.venueadmin.bitMask) {
-          params = {
-            role: routingConfig.userRoles.waiter.bitMask | routingConfig.userRoles.venueadmin.bitMask
-          };
-        }
-        if (Auth.getCurrentUser().role.bitMask & routingConfig.userRoles.admin.bitMask) {
-          params = {
-            role: routingConfig.userRoles.venueadmin.bitMask | routingConfig.userRoles.admin.bitMask
-          };
-        }
+        // if (Auth.getCurrentUser().role.bitMask & routingConfig.userRoles.venueadmin.bitMask) {
+        //   params = {
+        //     role: routingConfig.userRoles.waiter.bitMask | routingConfig.userRoles.venueadmin.bitMask
+        //   };
+        // }
+        // if (Auth.getCurrentUser().role.bitMask & routingConfig.userRoles.admin.bitMask) {
+        //   params = {
+        //     role: routingConfig.userRoles.venueadmin.bitMask | routingConfig.userRoles.admin.bitMask
+        //   };
+        // }
         return userservice.query(params, function(response) {
           $scope.users = response;
           return init();
@@ -79,6 +79,9 @@
           return load();
         });
       };
+      $scope.checkIfCanDelete = function(){
+        return Auth.getCurrentUser().role.bitMask == 8
+      }
       $scope["delete"] = function(user) {
         return ConfirmationProvider.Create("Are you sure you want to delete user: " + user.firstname + " " + user.lastname + "?").result.then(function() {
           return userservice["delete"]({

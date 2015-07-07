@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20140923152043) do
     t.boolean  "archived",                           default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["mobile"], name: "index_users_on_mobile", using: :btree
   add_index "users", ["venue_id"], name: "index_users_on_venue_id", using: :btree
 
