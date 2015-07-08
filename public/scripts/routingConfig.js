@@ -28,7 +28,7 @@
             'users': ['venueadmin', 'admin'],
             'venueprofile': ['venueadmin'],
             'venues': ['admin'],
-            'expandables': ['admin'],
+            'orders': ['admin'],
             'admin': ['admin']
         }
 

@@ -130,7 +130,7 @@
         }
       });
     }
-  ]).factory('ExpandableService', [
+  ]).factory('OrderService', [
     '$resource', function($resource) {
       return $resource('/v1/order_items', {}, {
       });

@@ -26,7 +26,7 @@ angular.module('app', [
     'app.user'
     'app.product'
     'app.venue'
-    'app.expandable'
+    'app.order'
     'app.confirmation'
     'app.ui.services'
 ])
@@ -83,12 +83,12 @@ angular.module('app', [
                 access: access.venues
             }
         })
-        .state('admin.expandables', {
-            url: '/expandables'
-            templateUrl: 'views/expandable/expandables.html'
-            controller: 'ExpandablesCtrl'
+        .state('admin.orders', {
+            url: '/orders'
+            templateUrl: 'views/order/orders.html'
+            controller: 'OrdersCtrl'
             data: {
-                access: access.expandables
+                access: access.orders
             }
         })
 

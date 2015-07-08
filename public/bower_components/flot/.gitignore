@@ -1,3 +1,6 @@
 *.min.js
 !excanvas.min.js
 node_modules/
+tmp/
+config/database.yml
+log/
