@@ -9,10 +9,11 @@
       <div class="row">
         <div class="col-sm-3 col-xs-6 filter-result-info">
           <span>
-            Showing {{orders.length}}/{{orders.length}} entries
+            Showing {{orders.length}}/{{allOrderSize}} entries
           </span>
         </div>
       </div>
+      <button class="btn btn-primary" type="button" ng-show="isButtonSelected" ng-click="showAll()">Show all</button>
       <table class="table table-bordered table-striped table-responsive">
         <thead>
           <tr>
@@ -23,12 +24,27 @@
             </th>
             <th>
               <div class="th">
-                Price
+                Username
+              </div>
+            </th>
+            <th>
+              <div class="th">
+                Product name
+              </div>
+            </th>
+            <th>
+              <div class="th">
+                Total price
               </div>
             </th>
             <th>
               <div class="th">
                 Quantity
+              </div>
+            </th>
+            <th>
+              <div class="th">
+                Order status
               </div>
             </th>
             <th>
@@ -41,8 +57,11 @@
         <tbody>
           <tr data-ng-repeat="order in orders">
             <td>{{order.venue}}</td>
-            <td>{{order.price | currency}}</td>
+            <td>{{order.user_full_name}}</td>
+            <td>{{order.product_name}}</td>
+            <td>{{order.price * order.quantity | currency}}</td>
             <td>{{order.quantity}}</td>
+            <td>{{order.order_status}}</td>
             <td>{{order.created_at | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
           </tr>
         </tbody>
