@@ -50,8 +50,8 @@
         params = {
           all: true
         }
-        return orderservice.query(params, function(response) {
-          $scope.orders = response;
+        return orderservice.get(params, function(response) {
+          $scope.orders = response.data;
           params = {}
           $scope.isButtonSelected = false;
         });

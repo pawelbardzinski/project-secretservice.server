@@ -13,7 +13,7 @@ class OrderItemsSerializer < ActiveModel::Serializer
   end
 
   def order_status
-    object.order.order_status
+    Order::STATUSES.values.detect {|item| item[:id] ==  object.order.order_status}[:name]
   end
 
   def product_name
