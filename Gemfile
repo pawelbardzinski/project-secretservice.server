@@ -42,9 +42,12 @@ gem 'swagger-docs'
 
 gem 'twilio-ruby'
 
+gem 'active_model_serializers', '~> 0.9.3'
+
 group :development do
 
 # Use Capistrano for deployment
+gem 'pry'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'

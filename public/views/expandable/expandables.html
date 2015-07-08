@@ -1,0 +1,52 @@
+<div class="page page-products">
+
+  <section class="panel panel-default table-dynamic">
+    <div class="panel-heading">
+      <strong>
+        <span class="glyphicon glyphicon-th"></span> Expandables</strong>
+    </div>
+    <div class="table-filters">
+      <div class="row">
+        <div class="col-sm-3 col-xs-6 filter-result-info">
+          <span>
+            Showing {{expandables.length}}/{{expandables.length}} entries
+          </span>
+        </div>
+      </div>
+      <table class="table table-bordered table-striped table-responsive">
+        <thead>
+          <tr>
+            <th>
+              <div class="th">
+                Venue
+              </div>
+            </th>
+            <th>
+              <div class="th">
+                Price
+              </div>
+            </th>
+            <th>
+              <div class="th">
+                Quantity
+              </div>
+            </th>
+            <th>
+              <div class="th">
+                Date
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="expandable in expandables">
+            <td>{{expandable.venue}}</td>
+            <td>{{expandable.price | currency}}</td>
+            <td>{{expandable.quantity}}</td>
+            <td>{{expandable.created_at | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

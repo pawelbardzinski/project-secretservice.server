@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       post 'products/upload', to: 'products#upload'
       resources :orders
     end
+    resources :order_items, only: [:index]
     get 'users/getbytoken/:token', to: 'users#get_by_token'
     post 'sessions/passwordreset', to: 'sessions#password_reset'
     post 'sessions/passwordupdate', to: 'sessions#password_update'

@@ -130,6 +130,11 @@
         }
       });
     }
+  ]).factory('ExpandableService', [
+    '$resource', function($resource) {
+      return $resource('/v1/order_items', {}, {
+      });
+    }
   ]).factory('ProductService', [
     '$resource', function($resource) {
       return $resource('/v1/venues/:venueId/products/:verb/:id', {}, {

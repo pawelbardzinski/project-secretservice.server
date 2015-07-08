@@ -26,6 +26,7 @@ angular.module('app', [
     'app.user'
     'app.product'
     'app.venue'
+    'app.expandable'
     'app.confirmation'
     'app.ui.services'
 ])
@@ -34,7 +35,7 @@ angular.module('app', [
     '$urlRouterProvider'
     ($stateProvider,$urlRouterProvider) ->
         access = routingConfig.accessLevels
-        
+
         $stateProvider
         .state('public', {
             abstract: true
@@ -52,13 +53,13 @@ angular.module('app', [
             url: '/signout'
             controller: 'SignOutCtrl'
         })
-        
+
         .state('public.forgotpassword', {
             url: '/forgot-password'
             controller: 'ForgotPasswordCtrl'
             templateUrl: 'views/system/forgot-password.html'
         })
-        
+
         .state('public.resetpassword', {
             url: '/resetpassword/:token'
             controller: 'ResetPasswordCtrl'
@@ -82,8 +83,16 @@ angular.module('app', [
                 access: access.venues
             }
         })
-        
-        
+        .state('admin.expandables', {
+            url: '/expandables'
+            templateUrl: 'views/expandable/expandables.html'
+            controller: 'ExpandablesCtrl'
+            data: {
+                access: access.expandables
+            }
+        })
+
+
         $stateProvider
         .state('venue', {
             abstract: true
@@ -107,7 +116,7 @@ angular.module('app', [
             }
         })
         .state('venue.users', {
-            url: '/users'            
+            url: '/users'
             templateUrl: 'views/users/users.html'
             controller: 'UsersCtrl'
             data: {
@@ -122,30 +131,30 @@ angular.module('app', [
                 access: access.products
             }
         })
-        
+
 #        $urlRouterProvider.otherwise('/dashboard');
 
         $urlRouterProvider.otherwise('/users');
 
-]) 
+])
 .run(($rootScope,$state,Auth,$http) ->
 
-    
+
     $rootScope.$on("$stateChangeStart", (event, toState, toParams, fromState, fromParams) ->
       if !Auth.authorize(toState.data.access)
           $rootScope.error = "Seems like you tried accessing a route you don't have access to..."
           event.preventDefault();
-           
-          if fromState.url == '^' 
-             if Auth.isLoggedIn() 
+
+          if fromState.url == '^'
+             if Auth.isLoggedIn()
                   #$state.go('venue.dashboard')
                   $state.go('venue.users')
              else
                   $rootScope.error = null
                   $state.go('public.signin')
     )
-    
-        
+
+
     $http.defaults.headers.common['x-application-id'] = 'com.secret-service.admin'
     $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
