@@ -17,30 +17,15 @@
         end = start + $scope.numPerPage;
         return $scope.currentPageStores = $scope.filteredOrders.slice(start, end);
       };
-      $scope.onFilterChange = function() {
-        $scope.select(1);
-        $scope.currentPage = 1;
-        return $scope.row = '';
-      };
-      $scope.onNumPerPageChange = function() {
-        $scope.select(1);
-        return $scope.currentPage = 1;
-      };
-      $scope.onOrderChange = function() {
-        $scope.select(1);
-        return $scope.currentPage = 1;
-      };
       $scope.search = function() {
         $scope.filteredOrders = $filter('filter')($scope.orders, $scope.searchKeywords);
-        return $scope.onFilterChange();
       };
       $scope.order = function(rowName) {
         if ($scope.row === rowName) {
           return;
         }
         $scope.row = rowName;
-        $scope.filteredOrders = $filter('orderBy')($scope.orders, rowName);
-        return $scope.onOrderChange();
+        $scope.orders = $filter('orderBy')($scope.orders, rowName);
       };
       $scope.numPerPageOpt = [3, 5, 10, 20];
       $scope.numPerPage = $scope.numPerPageOpt[2];

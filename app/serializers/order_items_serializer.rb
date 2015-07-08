@@ -1,5 +1,5 @@
 class OrderItemsSerializer < ActiveModel::Serializer
-  attributes :id, :quantity, :price, :created_at, :venue, :user_full_name,
+  attributes :id, :quantity, :total_price, :created_at, :venue, :user_full_name,
              :order_status, :product_name
 
   def venue
@@ -18,5 +18,9 @@ class OrderItemsSerializer < ActiveModel::Serializer
 
   def product_name
     object.product.name
+  end
+
+  def total_price
+    object.price * object.quantity
   end
 end
