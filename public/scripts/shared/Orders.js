@@ -46,6 +46,9 @@
         return orderservice.get(params, function(response) {
           $scope.orders = response.data;
           $scope.allOrderSize = response.meta.size
+          if($scope.orders.length == $scope.allOrderSize){
+            $scope.isButtonSelected = false;
+          }
           return init();
         });
       };

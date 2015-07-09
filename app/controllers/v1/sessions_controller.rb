@@ -30,7 +30,6 @@ class V1::SessionsController < ApiApplicationController
 
   # POST /sessions.json
   def create
-
     user = User.authenticate(params[:email], params[:password])
     if user
       if user.venue_id
