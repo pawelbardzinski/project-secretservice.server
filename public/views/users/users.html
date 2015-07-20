@@ -50,7 +50,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-repeat="user in filteredUsers">
+                <tr data-ng-repeat="user in filteredUsers | pagination: (currentPage - 1) * numPerPage | limitTo: numPerPage">
                     <td>{{user.email}}</td>
                     <td>{{lookupRoleName(user.role)}}</td>
                     <td>
@@ -59,6 +59,34 @@
                     </td>
                 </tr>
             </tbody>
+            <thead>
+                <tr>
+                    <th class="with-border">
+                        <div class="th">
+                            Email
+                            <span class="glyphicon glyphicon-chevron-up"
+                                  data-ng-click=" order('email') "
+                                  data-ng-class="{active: row == 'email'}"></span>
+                            <span class="glyphicon glyphicon-chevron-down"
+                                  data-ng-click=" order('-email') "
+                                  data-ng-class="{active: row == '-email'}"></span>
+                        </div>
+                    </th>
+                    <th class="with-border">
+                        <div class="th">
+                            Role
+                            <span class="glyphicon glyphicon-chevron-up"
+                                  data-ng-click=" order('role') "
+                                  data-ng-class="{active: row == 'role'}"></span>
+                            <span class="glyphicon glyphicon-chevron-down"
+                                  data-ng-click=" order('-role') "
+                                  data-ng-class="{active: row == '-role'}"></span>
+                        </div>
+                    </th>
+                    <th class="with-border">
+                    </th>
+                </tr>
+            </thead>
         </table>
         <footer class="table-footer">
             <div class="row">
@@ -74,7 +102,7 @@
                 <div class="col-md-6 text-right pagination-container">
                     <pagination class="pagination-sm"
                                 ng-model="currentPage"
-                                total-items="filteredStores.length"
+                                total-items="filteredUsers.length"
                                 max-size="4"
                                 ng-change="select(currentPage)"
                                 items-per-page="numPerPage"

@@ -181,6 +181,14 @@
     }
   ]);
 
+  appUser.filter('pagination', function() {
+    return function(input, start) {
+      if (input) {
+        return input.slice(start);
+      }
+    };
+  });
+
 }).call(this);
 
 //# sourceMappingURL=Users.js.map

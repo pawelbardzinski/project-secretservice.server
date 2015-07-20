@@ -170,6 +170,14 @@
     }
   ]);
 
+  appVenue.filter('pagination', function() {
+    return function(input, start) {
+      if (input) {
+        return input.slice(start);
+      }
+    };
+  });
+
 }).call(this);
 
 //# sourceMappingURL=Venues.js.map

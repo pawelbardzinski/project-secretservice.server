@@ -67,12 +67,12 @@
                                   data-ng-class="{active: row == '-state'}"></span>
                         </div>
                     </th>
-                    <th>                        
+                    <th>
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-repeat="venue in filteredVenues">
+                <tr data-ng-repeat="venue in filteredVenues | pagination: (currentPage - 1) * numPerPage | limitTo: numPerPage">
                     <td>{{venue.name}}</td>
                     <td>{{venue.address_line_1}}</td>
                     <td>{{venue.city}}</td>
@@ -83,6 +83,56 @@
                     </td>
                 </tr>
             </tbody>
+            <thead>
+                <tr>
+                    <th class="with-border">
+                        <div class="th">
+                            Name
+                            <span class="glyphicon glyphicon-chevron-up"
+                                  data-ng-click=" order('name') "
+                                  data-ng-class="{active: row == 'name'}"></span>
+                            <span class="glyphicon glyphicon-chevron-down"
+                                  data-ng-click=" order('-name') "
+                                  data-ng-class="{active: row == '-name'}"></span>
+                        </div>
+                    </th>
+                    <th class="with-border">
+                        <div class="th">
+                            Address
+                            <span class="glyphicon glyphicon-chevron-up"
+                                  data-ng-click=" order('address_line_1') "
+                                  data-ng-class="{active: row == 'address_line_1'}"></span>
+                            <span class="glyphicon glyphicon-chevron-down"
+                                  data-ng-click=" order('-address_line_1') "
+                                  data-ng-class="{active: row == '-address_line_1'}"></span>
+                        </div>
+                    </th>
+                    <th class="with-border">
+                        <div class="th">
+                            City
+                            <span class="glyphicon glyphicon-chevron-up"
+                                  data-ng-click=" order('city') "
+                                  data-ng-class="{active: row == 'city'}"></span>
+                            <span class="glyphicon glyphicon-chevron-down"
+                                  data-ng-click=" order('-city') "
+                                  data-ng-class="{active: row == '-city'}"></span>
+                        </div>
+                    </th>
+                    <th class="with-border">
+                        <div class="th">
+                            State
+                            <span class="glyphicon glyphicon-chevron-up"
+                                  data-ng-click=" order('state') "
+                                  data-ng-class="{active: row == 'state'}"></span>
+                            <span class="glyphicon glyphicon-chevron-down"
+                                  data-ng-click=" order('-state') "
+                                  data-ng-class="{active: row == '-state'}"></span>
+                        </div>
+                    </th>
+                    <th class="with-border">
+                    </th>
+                </tr>
+            </thead>
         </table>
         <footer class="table-footer">
             <div class="row">
@@ -98,7 +148,7 @@
                 <div class="col-md-6 text-right pagination-container">
                     <pagination class="pagination-sm"
                                 ng-model="currentPage"
-                                total-items="filteredStores.length"
+                                total-items="filteredVenues.length"
                                 max-size="4"
                                 ng-change="select(currentPage)"
                                 items-per-page="numPerPage"
@@ -111,4 +161,3 @@
     </section>
 
 </div>
-  

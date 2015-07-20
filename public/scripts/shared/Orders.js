@@ -46,9 +46,6 @@
         return orderservice.get(params, function(response) {
           $scope.orders = response.data;
           $scope.allOrderSize = response.meta.size
-          if($scope.orders.length == $scope.allOrderSize){
-            $scope.isButtonSelected = false;
-          }
           return init();
         });
       };
@@ -60,6 +57,14 @@
     }
   ]);
 
+  appOrder.filter('pagination', function() {
+    return function(input, start) {
+      if (input) {
+        return input.slice(start);
+      }
+    };
+  });
 }).call(this);
+
 
 //# sourceMappingURL=Venues.js.map

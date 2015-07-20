@@ -9493,8 +9493,8 @@ button.toast-close-button {
 .introjs-tooltipbuttons {
   text-align: right;
 }
-/* 
- Buttons style by http://nicolasgallagher.com/lab/css3-github-buttons/ 
+/*
+ Buttons style by http://nicolasgallagher.com/lab/css3-github-buttons/
  Changed by Afshin Mehrabani
 */
 .introjs-button {
@@ -10782,5 +10782,10 @@ input.fileinput-button {
 input::-webkit-file-upload-button {
   width: 200px !important;
   height: 34px !important;
+}
+
+thead tr th.with-border{
+  border-top-width: 2px !important;
+  border-bottom-width: 2px !important;
 }
 /*# sourceMappingURL=main.css.map */
