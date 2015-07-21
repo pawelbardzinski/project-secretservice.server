@@ -9,95 +9,89 @@
       <div class="row">
         <div class="col-sm-3 col-xs-6 filter-result-info">
           <span>
-            Showing {{orders.length}}/{{allOrderSize}} entries
+            Showing {{filteredOrders.length}}/{{allOrderSize}} entries
           </span>
         </div>
+        <div class="col-sm-9 col-xs-6" ng-controller="DatepickerCtrl">
+          <div class="row">
+            <div class="col-md-3">
+              <p class="input-group">
+                <input type="date" class="form-control" datepicker-popup ng-model="dt" is-open="opened[0]" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" close-text="Close" ng-change="dtChanged()"
+                />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event, 0)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>
+            </div>
+
+            <div class="col-md-offset-4 col-md-3">
+              <p class="input-group">
+                <input type="date" class="form-control" datepicker-popup ng-model="dk" is-open="opened[1]" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" close-text="Close" ng-change="dkChanged()" />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event, 1)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="btn btn-primary" type="button" ng-show="isButtonSelected" ng-click="showAll()">Show all</button>
+      <button ng-disabled="buttonIsDisabled" class="btn btn-primary" type="button" ng-show="isButtonSelected" ng-click="showAll()">Show all</button>
       <table class="table table-bordered table-striped table-responsive">
         <thead>
           <tr>
             <th>
               <div class="th">
                 Venue
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('venue') "
-                      data-ng-class="{active: row == 'venue'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-venue') "
-                      data-ng-class="{active: row == '-venue'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('venue') " data-ng-class="{active: row == 'venue'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-venue') " data-ng-class="{active: row == '-venue'}"></span>
               </div>
             </th>
             <th>
               <div class="th">
                 Username
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('user_full_name') "
-                      data-ng-class="{active: row == 'user_full_name'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-user_full_name') "
-                      data-ng-class="{active: row == '-user_full_name'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('user_full_name') " data-ng-class="{active: row == 'user_full_name'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-user_full_name') " data-ng-class="{active: row == '-user_full_name'}"></span>
               </div>
             </th>
             <th>
               <div class="th">
                 Product name
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('product_name') "
-                      data-ng-class="{active: row == 'product_name'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-product_name') "
-                      data-ng-class="{active: row == '-product_name'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('product_name') " data-ng-class="{active: row == 'product_name'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-product_name') " data-ng-class="{active: row == '-product_name'}"></span>
               </div>
             </th>
             <th>
               <div class="th">
                 Total price
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('total_price') "
-                      data-ng-class="{active: row == 'total_price'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-total_price') "
-                      data-ng-class="{active: row == '-total_price'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('total_price') " data-ng-class="{active: row == 'total_price'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-total_price') " data-ng-class="{active: row == '-total_price'}"></span>
               </div>
             </th>
             <th>
               <div class="th">
                 Quantity
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('quantity') "
-                      data-ng-class="{active: row == 'quantity'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-quantity') "
-                      data-ng-class="{active: row == '-quantity'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('quantity') " data-ng-class="{active: row == 'quantity'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-quantity') " data-ng-class="{active: row == '-quantity'}"></span>
               </div>
             </th>
             <th>
               <div class="th">
                 Order status
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('order_status') "
-                      data-ng-class="{active: row == 'order_status'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-order_status') "
-                      data-ng-class="{active: row == '-order_status'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('order_status') " data-ng-class="{active: row == 'order_status'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-order_status') " data-ng-class="{active: row == '-order_status'}"></span>
               </div>
             </th>
             <th>
               <div class="th">
                 Date
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('created_at') "
-                      data-ng-class="{active: row == 'created_at'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-created_at') "
-                      data-ng-class="{active: row == '-created_at'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('created_at') " data-ng-class="{active: row == 'created_at'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-created_at') " data-ng-class="{active: row == '-created_at'}"></span>
               </div>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr data-ng-repeat="order in orders | pagination: (currentPage * numPerPage) - numPerPage | limitTo: numPerPage">
+          <tr data-ng-repeat="order in filteredOrders | pagination: (currentPage * numPerPage) - numPerPage | limitTo: numPerPage">
             <td>{{order.venue}}</td>
             <td>{{order.user_full_name}}</td>
             <td>{{order.product_name}}</td>
@@ -112,105 +106,68 @@
             <th class="with-border">
               <div class="th">
                 Venue
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('venue') "
-                      data-ng-class="{active: row == 'venue'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-venue') "
-                      data-ng-class="{active: row == '-venue'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('venue') " data-ng-class="{active: row == 'venue'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-venue') " data-ng-class="{active: row == '-venue'}"></span>
               </div>
             </th>
             <th class="with-border">
               <div class="th">
                 Username
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('user_full_name') "
-                      data-ng-class="{active: row == 'user_full_name'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-user_full_name') "
-                      data-ng-class="{active: row == '-user_full_name'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('user_full_name') " data-ng-class="{active: row == 'user_full_name'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-user_full_name') " data-ng-class="{active: row == '-user_full_name'}"></span>
               </div>
             </th>
             <th class="with-border">
               <div class="th">
                 Product name
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('product_name') "
-                      data-ng-class="{active: row == 'product_name'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-product_name') "
-                      data-ng-class="{active: row == '-product_name'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('product_name') " data-ng-class="{active: row == 'product_name'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-product_name') " data-ng-class="{active: row == '-product_name'}"></span>
               </div>
             </th>
             <th class="with-border">
               <div class="th">
                 Total price
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('total_price') "
-                      data-ng-class="{active: row == 'total_price'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-total_price') "
-                      data-ng-class="{active: row == '-total_price'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('total_price') " data-ng-class="{active: row == 'total_price'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-total_price') " data-ng-class="{active: row == '-total_price'}"></span>
               </div>
             </th>
             <th class="with-border">
               <div class="th">
                 Quantity
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('quantity') "
-                      data-ng-class="{active: row == 'quantity'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-quantity') "
-                      data-ng-class="{active: row == '-quantity'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('quantity') " data-ng-class="{active: row == 'quantity'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-quantity') " data-ng-class="{active: row == '-quantity'}"></span>
               </div>
             </th>
             <th class="with-border">
               <div class="th">
                 Order status
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('order_status') "
-                      data-ng-class="{active: row == 'order_status'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-order_status') "
-                      data-ng-class="{active: row == '-order_status'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('order_status') " data-ng-class="{active: row == 'order_status'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-order_status') " data-ng-class="{active: row == '-order_status'}"></span>
               </div>
             </th>
             <th class="with-border">
               <div class="th">
                 Date
-                <span class="glyphicon glyphicon-chevron-up"
-                      data-ng-click=" order('created_at') "
-                      data-ng-class="{active: row == 'created_at'}"></span>
-                <span class="glyphicon glyphicon-chevron-down"
-                      data-ng-click=" order('-created_at') "
-                      data-ng-class="{active: row == '-created_at'}"></span>
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('created_at') " data-ng-class="{active: row == 'created_at'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-created_at') " data-ng-class="{active: row == '-created_at'}"></span>
               </div>
             </th>
           </tr>
         </thead>
       </table>
       <footer class="table-footer">
-          <div class="row">
-              <div class="col-md-6 page-num-info">
-                  <span>
-                      Show
-                      <select data-ng-model="numPerPage"
-                              data-ng-options="num for num in numPerPageOpt"
-                              data-ng-change="onNumPerPageChange()"></select>
-                      entries per page
-                  </span>
-              </div>
-              <div class="col-md-6 text-right pagination-container">
-                  <pagination class="pagination-sm"
-                              ng-model="currentPage"
-                              total-items="orders.length"
-                              max-size="4"
-                              ng-change="select(currentPage)"
-                              items-per-page="numPerPage"
-                              rotate="false"
-                              boundary-links="true"></pagination>
-              </div>
+        <div class="row">
+          <div class="col-md-6 page-num-info">
+            <span>
+              Show
+              <select data-ng-model="numPerPage" data-ng-options="num for num in numPerPageOpt" data-ng-change="onNumPerPageChange()"></select>
+              entries per page
+            </span>
           </div>
+          <div class="col-md-6 text-right pagination-container">
+            <pagination class="pagination-sm" ng-model="currentPage" total-items="filteredOrders.length" max-size="4" ng-change="select(currentPage)" items-per-page="numPerPage" rotate="false" boundary-links="true"></pagination>
+          </div>
+        </div>
       </footer>
     </div>
   </section>

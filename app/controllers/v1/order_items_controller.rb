@@ -18,7 +18,8 @@ class V1::OrderItemsController < ApiApplicationController
   def index
     return render json: {}, status: 401 if @current_user.role != 8
     subject = OrderItem.includes({order: [:venue, :user]}, :product)
-    @order_items = params[:all] && params[:all] == 'true' ? subject.all : subject.all.limit(500)
+    @order_items = subject.all
+    # @order_items = params[:all] && params[:all] == 'true' ? subject.all : subject.all.limit(500)
     render json: @order_items, root: "data", meta: {size: subject.all.size }, each_serializer: OrderItemsSerializer, status: 200
   end
 

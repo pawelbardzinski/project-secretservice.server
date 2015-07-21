@@ -10788,4 +10788,8 @@ thead tr th.with-border{
   border-top-width: 2px !important;
   border-bottom-width: 2px !important;
 }
+
+section#content section.panel div.table-filters div.row ul.dropdown-menu{
+  width: 280px;
+}
 /*# sourceMappingURL=main.css.map */
