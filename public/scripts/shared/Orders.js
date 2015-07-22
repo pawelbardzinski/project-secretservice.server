@@ -5,7 +5,7 @@
   appOrder.controller('OrdersCtrl', [
     '$scope', '$filter', 'OrderService', 'Auth', 'ConfirmationProvider', 'uiHelper',
     function($scope, $filter, orderservice, Auth, ConfirmationProvider, uiHelper) {
-      var maxDataToSee = 20;
+      var maxDataToSee = 1000;
       var init, load;
       $scope.buttonIsDisabled = false;
       $scope.filteredOrders = [];
