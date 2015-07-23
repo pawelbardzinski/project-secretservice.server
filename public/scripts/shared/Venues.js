@@ -47,6 +47,7 @@
       load = function() {
         return venueservice.query(null, function(response) {
           $scope.venues = response;
+          $scope.numPerPageOpt.push($scope.venues.length);
           return init();
         });
       };

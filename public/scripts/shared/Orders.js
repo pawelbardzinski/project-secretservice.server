@@ -66,6 +66,7 @@
           if ($scope.orders.length == $scope.filteredOrders.length) {
             $scope.buttonIsDisabled = true;
           }
+          $scope.numPerPageOpt.push($scope.orders.length);
           $scope.allOrderSize = response.meta.size
           return init();
         });

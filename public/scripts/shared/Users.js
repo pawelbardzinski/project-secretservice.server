@@ -59,6 +59,7 @@
         // }
         return userservice.query(params, function(response) {
           $scope.users = response;
+          $scope.numPerPageOpt.push($scope.users.length);
           return init();
         });
       };
