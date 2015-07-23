@@ -94,7 +94,7 @@
                     <span>
                         Show
                         <select data-ng-model="numPerPage"
-                                data-ng-options="num for num in numPerPageOpt"
+                                data-ng-options="num.value as num.key for num in numPerPageOpt"
                                 data-ng-change="onNumPerPageChange()"></select>
                         entries per page
                     </span>

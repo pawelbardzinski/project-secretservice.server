@@ -1,163 +1,121 @@
-<div class="page page-venues" >
+<div class="page page-venues">
 
-    <section class="panel panel-default table-dynamic">
-        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Venues</strong></div>
-        <div class="table-filters">
-            <div class="row">
-                <div class="col-sm-4 col-xs-6">
-                    <form>
-                        <input type="text"
-                               placeholder="search"
-                               class="form-control"
-                               data-ng-model="searchKeywords"
-                               data-ng-keyup="search()">
-                    </form>
-                </div>
-                <div class="col-sm-3 col-xs-6 filter-result-info">
-                    <span>
-                        Showing {{filteredVenues.length}}/{{venues.length}} entries
-                    </span>
-                </div>
-            </div>
+  <section class="panel panel-default table-dynamic">
+    <div class="panel-heading">
+      <strong>
+        <span class="glyphicon glyphicon-th"></span> Venues</strong>
+    </div>
+    <div class="table-filters">
+      <div class="row">
+        <div class="col-sm-4 col-xs-6">
+          <form>
+            <input type="text" placeholder="search" class="form-control" data-ng-model="searchKeywords" data-ng-keyup="search()">
+          </form>
         </div>
-        <table class="table table-bordered table-striped table-responsive">
-            <thead>
-                <tr>
-                    <th>
-                        <div class="th">
-                            Name
-                            <span class="glyphicon glyphicon-chevron-up"
-                                  data-ng-click=" order('name') "
-                                  data-ng-class="{active: row == 'name'}"></span>
-                            <span class="glyphicon glyphicon-chevron-down"
-                                  data-ng-click=" order('-name') "
-                                  data-ng-class="{active: row == '-name'}"></span>
-                        </div>
-                    </th>
-                    <th>
-                        <div class="th">
-                            Address
-                            <span class="glyphicon glyphicon-chevron-up"
-                                  data-ng-click=" order('address_line_1') "
-                                  data-ng-class="{active: row == 'address_line_1'}"></span>
-                            <span class="glyphicon glyphicon-chevron-down"
-                                  data-ng-click=" order('-address_line_1') "
-                                  data-ng-class="{active: row == '-address_line_1'}"></span>
-                        </div>
-                    </th>
-                    <th>
-                        <div class="th">
-                            City
-                            <span class="glyphicon glyphicon-chevron-up"
-                                  data-ng-click=" order('city') "
-                                  data-ng-class="{active: row == 'city'}"></span>
-                            <span class="glyphicon glyphicon-chevron-down"
-                                  data-ng-click=" order('-city') "
-                                  data-ng-class="{active: row == '-city'}"></span>
-                        </div>
-                    </th>
-                    <th>
-                        <div class="th">
-                            State
-                            <span class="glyphicon glyphicon-chevron-up"
-                                  data-ng-click=" order('state') "
-                                  data-ng-class="{active: row == 'state'}"></span>
-                            <span class="glyphicon glyphicon-chevron-down"
-                                  data-ng-click=" order('-state') "
-                                  data-ng-class="{active: row == '-state'}"></span>
-                        </div>
-                    </th>
-                    <th>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr data-ng-repeat="venue in filteredVenues | pagination: (currentPage - 1) * numPerPage | limitTo: numPerPage">
-                    <td>{{venue.name}}</td>
-                    <td>{{venue.address_line_1}}</td>
-                    <td>{{venue.city}}</td>
-                    <td>{{venue.state}}</td>
-                    <td>
-                        <button class="btn btn-primary" type="button" data-ng-click="edit(venue)">Edit</button>
-                        <button class="btn btn-primary" type="button" data-ng-click="delete(venue)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th class="with-border">
-                        <div class="th">
-                            Name
-                            <span class="glyphicon glyphicon-chevron-up"
-                                  data-ng-click=" order('name') "
-                                  data-ng-class="{active: row == 'name'}"></span>
-                            <span class="glyphicon glyphicon-chevron-down"
-                                  data-ng-click=" order('-name') "
-                                  data-ng-class="{active: row == '-name'}"></span>
-                        </div>
-                    </th>
-                    <th class="with-border">
-                        <div class="th">
-                            Address
-                            <span class="glyphicon glyphicon-chevron-up"
-                                  data-ng-click=" order('address_line_1') "
-                                  data-ng-class="{active: row == 'address_line_1'}"></span>
-                            <span class="glyphicon glyphicon-chevron-down"
-                                  data-ng-click=" order('-address_line_1') "
-                                  data-ng-class="{active: row == '-address_line_1'}"></span>
-                        </div>
-                    </th>
-                    <th class="with-border">
-                        <div class="th">
-                            City
-                            <span class="glyphicon glyphicon-chevron-up"
-                                  data-ng-click=" order('city') "
-                                  data-ng-class="{active: row == 'city'}"></span>
-                            <span class="glyphicon glyphicon-chevron-down"
-                                  data-ng-click=" order('-city') "
-                                  data-ng-class="{active: row == '-city'}"></span>
-                        </div>
-                    </th>
-                    <th class="with-border">
-                        <div class="th">
-                            State
-                            <span class="glyphicon glyphicon-chevron-up"
-                                  data-ng-click=" order('state') "
-                                  data-ng-class="{active: row == 'state'}"></span>
-                            <span class="glyphicon glyphicon-chevron-down"
-                                  data-ng-click=" order('-state') "
-                                  data-ng-class="{active: row == '-state'}"></span>
-                        </div>
-                    </th>
-                    <th class="with-border">
-                    </th>
-                </tr>
-            </thead>
-        </table>
-        <footer class="table-footer">
-            <div class="row">
-                <div class="col-md-6 page-num-info">
-                    <span>
-                        Show
-                        <select data-ng-model="numPerPage"
-                                data-ng-options="num for num in numPerPageOpt"
-                                data-ng-change="onNumPerPageChange()"></select>
-                        entries per page
-                    </span>
-                </div>
-                <div class="col-md-6 text-right pagination-container">
-                    <pagination class="pagination-sm"
-                                ng-model="currentPage"
-                                total-items="filteredVenues.length"
-                                max-size="4"
-                                ng-change="select(currentPage)"
-                                items-per-page="numPerPage"
-                                rotate="false"
-                                boundary-links="true"></pagination>
-                </div>
+        <div class="col-sm-3 col-xs-6 filter-result-info">
+          <span>
+            Showing {{filteredVenues.length}}/{{venues.length}} entries
+          </span>
+        </div>
+      </div>
+    </div>
+    <table class="table table-bordered table-striped table-responsive">
+      <thead>
+        <tr>
+          <th>
+            <div class="th">
+              Name
+              <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('name') " data-ng-class="{active: row == 'name'}"></span>
+              <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-name') " data-ng-class="{active: row == '-name'}"></span>
             </div>
-        </footer>
-        <button class="btn btn-primary btn-add" type="button" data-ng-click="add(venue)">Add New</button>
-    </section>
+          </th>
+          <th>
+            <div class="th">
+              Address
+              <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('address_line_1') " data-ng-class="{active: row == 'address_line_1'}"></span>
+              <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-address_line_1') " data-ng-class="{active: row == '-address_line_1'}"></span>
+            </div>
+          </th>
+          <th>
+            <div class="th">
+              City
+              <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('city') " data-ng-class="{active: row == 'city'}"></span>
+              <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-city') " data-ng-class="{active: row == '-city'}"></span>
+            </div>
+          </th>
+          <th>
+            <div class="th">
+              State
+              <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('state') " data-ng-class="{active: row == 'state'}"></span>
+              <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-state') " data-ng-class="{active: row == '-state'}"></span>
+            </div>
+          </th>
+          <th>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="venue in filteredVenues | pagination: (currentPage - 1) * numPerPage | limitTo: numPerPage">
+          <td>{{venue.name}}</td>
+          <td>{{venue.address_line_1}}</td>
+          <td>{{venue.city}}</td>
+          <td>{{venue.state}}</td>
+          <td>
+            <button class="btn btn-primary" type="button" data-ng-click="edit(venue)">Edit</button>
+            <button class="btn btn-primary" type="button" data-ng-click="delete(venue)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th class="with-border">
+            <div class="th">
+              Name
+              <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('name') " data-ng-class="{active: row == 'name'}"></span>
+              <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-name') " data-ng-class="{active: row == '-name'}"></span>
+            </div>
+          </th>
+          <th class="with-border">
+            <div class="th">
+              Address
+              <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('address_line_1') " data-ng-class="{active: row == 'address_line_1'}"></span>
+              <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-address_line_1') " data-ng-class="{active: row == '-address_line_1'}"></span>
+            </div>
+          </th>
+          <th class="with-border">
+            <div class="th">
+              City
+              <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('city') " data-ng-class="{active: row == 'city'}"></span>
+              <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-city') " data-ng-class="{active: row == '-city'}"></span>
+            </div>
+          </th>
+          <th class="with-border">
+            <div class="th">
+              State
+              <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('state') " data-ng-class="{active: row == 'state'}"></span>
+              <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-state') " data-ng-class="{active: row == '-state'}"></span>
+            </div>
+          </th>
+          <th class="with-border">
+          </th>
+        </tr>
+      </thead>
+    </table>
+    <footer class="table-footer">
+      <div class="row">
+        <div class="col-md-6 page-num-info">
+          <span>
+            Show
+            <select data-ng-model="numPerPage" data-ng-options="num.value as num.key for num in numPerPageOpt" data-ng-change="onNumPerPageChange()"></select>
+            entries per page
+          </span>
+        </div>
+        <div class="col-md-6 text-right pagination-container">
+          <pagination class="pagination-sm" ng-model="currentPage" total-items="filteredVenues.length" max-size="4" ng-change="select(currentPage)" items-per-page="numPerPage" rotate="false" boundary-links="true"></pagination>
+        </div>
+      </div>
+    </footer>
+    <button class="btn btn-primary btn-add" type="button" data-ng-click="add(venue)">Add New</button>
+  </section>
 
 </div>

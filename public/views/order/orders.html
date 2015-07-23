@@ -16,8 +16,7 @@
           <div class="row">
             <div class="col-md-offset-2 col-md-5 col-sm-5 col-sm-offset-2">
               <p class="input-group">
-                <input type="date" class="form-control" datepicker-popup ng-model="dt" is-open="opened[0]" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" close-text="Close" ng-change="dtChanged()"
-                />
+                <input type="date" class="form-control" datepicker-popup ng-model="dt" is-open="opened[0]" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" close-text="Close" ng-change="dtChanged()" />
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="open($event, 0)"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
@@ -160,7 +159,7 @@
           <div class="col-md-6 page-num-info">
             <span>
               Show
-              <select data-ng-model="numPerPage" data-ng-options="num for num in numPerPageOpt" data-ng-change="onNumPerPageChange()"></select>
+              <select data-ng-model="numPerPage" data-ng-options="num.value as num.key for num in numPerPageOpt" data-ng-change="onNumPerPageChange()"></select>
               entries per page
             </span>
           </div>

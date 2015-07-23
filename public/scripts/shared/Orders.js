@@ -26,8 +26,20 @@
         $scope.row = rowName;
         $scope.orders = $filter('orderBy')($scope.orders, rowName);
       };
-      $scope.numPerPageOpt = [3, 5, 10, 20];
-      $scope.numPerPage = $scope.numPerPageOpt[2];
+      $scope.numPerPageOpt = [{
+        key: "3",
+        value: 3
+      }, {
+        key: "5",
+        value: 5
+      }, {
+        key: "10",
+        value: 10
+      }, {
+        key: "20",
+        value: 20
+      }];
+      $scope.numPerPage = 10;
       $scope.currentPage = 1;
       $scope.currentPageStores = [];
       $scope.showAll = function() {
@@ -66,7 +78,10 @@
           if ($scope.orders.length == $scope.filteredOrders.length) {
             $scope.buttonIsDisabled = true;
           }
-          $scope.numPerPageOpt.push($scope.orders.length);
+          $scope.numPerPageOpt.push({
+            key: "all",
+            value: $scope.orders.length
+          });
           $scope.allOrderSize = response.meta.size
           return init();
         });
@@ -89,9 +104,9 @@
     $scope.opened = []
     $scope.today = function() {
       dt = new Date();
-      dt.setHours(0,0,0,0);
+      dt.setHours(0, 0, 0, 0);
       dk = new Date();
-      dk.setHours(0,0,0,0);
+      dk.setHours(0, 0, 0, 0);
     };
     $scope.today();
 
@@ -120,10 +135,10 @@
     };
     $scope.$on('minMaxDateChange', function(event, mass) {
       $scope.dt = new Date(Date.parse(mass[0].created_at));
-      $scope.dt.setHours(0,0,0,0)
+      $scope.dt.setHours(0, 0, 0, 0)
       $scope.minDate = new Date(Date.parse(mass[0].created_at));
       $scope.dk = new Date(Date.parse(mass[1].created_at));
-      $scope.dk.setHours(23,59,0,0)
+      $scope.dk.setHours(23, 59, 0, 0)
       $scope.maxDate = new Date(Date.parse(mass[1].created_at));
       $scope.$emit('dateChange', [$scope.dt, $scope.dk]);
     });

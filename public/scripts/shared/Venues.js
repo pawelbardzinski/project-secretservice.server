@@ -1,10 +1,12 @@
-﻿(function() {
+﻿
+(function() {
   var VenueModalCtrl, appVenue;
 
   appVenue = angular.module('app.venue', ['app.services']);
 
   appVenue.controller('VenuesCtrl', [
-    '$scope', '$filter', 'VenueModalProvider', 'VenueService', 'Auth', 'ConfirmationProvider', 'uiHelper', function($scope, $filter, venueModalProvider, venueservice, Auth, ConfirmationProvider, uiHelper) {
+    '$scope', '$filter', 'VenueModalProvider', 'VenueService', 'Auth', 'ConfirmationProvider', 'uiHelper',
+    function($scope, $filter, venueModalProvider, venueservice, Auth, ConfirmationProvider, uiHelper) {
       var init, load;
       $scope.searchKeywords = '';
       $scope.filteredVenues = [];
@@ -40,14 +42,29 @@
         $scope.filteredVenues = $filter('orderBy')($scope.venues, rowName);
         return $scope.onOrderChange();
       };
-      $scope.numPerPageOpt = [3, 5, 10, 20];
-      $scope.numPerPage = $scope.numPerPageOpt[2];
+      $scope.numPerPageOpt = [{
+        key: "3",
+        value: 3
+      }, {
+        key: "5",
+        value: 5
+      }, {
+        key: "10",
+        value: 10
+      }, {
+        key: "20",
+        value: 20
+      }];
+      $scope.numPerPage = 10;
       $scope.currentPage = 1;
       $scope.currentPageStores = [];
       load = function() {
         return venueservice.query(null, function(response) {
           $scope.venues = response;
-          $scope.numPerPageOpt.push($scope.venues.length);
+          $scope.numPerPageOpt.push({
+            key: "all",
+            value: $scope.venues.length
+          });
           return init();
         });
       };
@@ -81,7 +98,8 @@
   ]);
 
   appVenue.controller('VenueProfileCtrl', [
-    '$scope', '$filter', 'VenueService', 'Auth', 'uiHelper', function($scope, $filter, VenueService, Auth, uiHelper) {
+    '$scope', '$filter', 'VenueService', 'Auth', 'uiHelper',
+    function($scope, $filter, VenueService, Auth, uiHelper) {
       var venueId;
       venueId = Auth.getCurrentUser().venue_id;
       $scope.states = uiHelper.states;
@@ -145,13 +163,15 @@
   };
 
   appVenue.controller('VenueModalCtrl', [
-    '$scope', '$modalInstance', '$filter', 'VenueService', 'Auth', 'uiHelper', 'venueId', function($scope, $modalInstance, $filter, VenueService, Auth, uiHelper, venueId) {
+    '$scope', '$modalInstance', '$filter', 'VenueService', 'Auth', 'uiHelper', 'venueId',
+    function($scope, $modalInstance, $filter, VenueService, Auth, uiHelper, venueId) {
       return new VenueModalCtrl($scope, $modalInstance, $filter, VenueService, VenueService, Auth, uiHelper, venueId);
     }
   ]);
 
   appVenue.factory('VenueModalProvider', [
-    '$modal', function($modal) {
+    '$modal',
+    function($modal) {
       var provider;
       provider = {};
       provider.Create = function(venueId) {

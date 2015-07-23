@@ -1,10 +1,12 @@
-﻿(function() {
+﻿
+(function() {
   var UserModalCtrl, appUser;
 
   appUser = angular.module('app.user', ['app.services']);
 
   appUser.controller('UsersCtrl', [
-    '$scope', '$filter', 'UserModalProvider', 'UserService', 'Auth', 'ConfirmationProvider', 'uiHelper', function($scope, $filter, userModalProvider, userservice, Auth, ConfirmationProvider, uiHelper) {
+    '$scope', '$filter', 'UserModalProvider', 'UserService', 'Auth', 'ConfirmationProvider', 'uiHelper',
+    function($scope, $filter, userModalProvider, userservice, Auth, ConfirmationProvider, uiHelper) {
       var init, load;
       $scope.searchKeywords = '';
       $scope.filteredUsers = [];
@@ -40,8 +42,20 @@
         $scope.filteredUsers = $filter('orderBy')($scope.users, rowName);
         return $scope.onOrderChange();
       };
-      $scope.numPerPageOpt = [3, 5, 10, 20];
-      $scope.numPerPage = $scope.numPerPageOpt[2];
+      $scope.numPerPageOpt = [{
+        key: "3",
+        value: 3
+      }, {
+        key: "5",
+        value: 5
+      }, {
+        key: "10",
+        value: 10
+      }, {
+        key: "20",
+        value: 20
+      }];
+      $scope.numPerPage = 10;
       $scope.currentPage = 1;
       $scope.currentPageStores = [];
       load = function() {
@@ -59,7 +73,10 @@
         // }
         return userservice.query(params, function(response) {
           $scope.users = response;
-          $scope.numPerPageOpt.push($scope.users.length);
+          $scope.numPerPageOpt.push({
+            key: "all",
+            value: $scope.users.length
+          });
           return init();
         });
       };
@@ -80,7 +97,7 @@
           return load();
         });
       };
-      $scope.checkIfCanDelete = function(){
+      $scope.checkIfCanDelete = function() {
         return Auth.getCurrentUser().role.bitMask == 8
       }
       $scope["delete"] = function(user) {
@@ -156,13 +173,15 @@
   };
 
   appUser.controller('UserModalCtrl', [
-    '$scope', '$modalInstance', '$filter', 'UserService', 'VenueService', 'Auth', 'uiHelper', 'userId', function($scope, $modalInstance, $filter, UserService, VenueService, Auth, uiHelper, userId) {
+    '$scope', '$modalInstance', '$filter', 'UserService', 'VenueService', 'Auth', 'uiHelper', 'userId',
+    function($scope, $modalInstance, $filter, UserService, VenueService, Auth, uiHelper, userId) {
       return new UserModalCtrl($scope, $modalInstance, $filter, UserService, VenueService, Auth, uiHelper, userId);
     }
   ]);
 
   appUser.factory('UserModalProvider', [
-    '$modal', function($modal) {
+    '$modal',
+    function($modal) {
       var provider;
       provider = {};
       provider.Create = function(userId) {
