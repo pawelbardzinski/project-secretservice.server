@@ -59,6 +59,11 @@
         // });
       }
 
+      $scope.showCurrentState = function() {
+        var showed = $scope.numPerPage * $scope.currentPage
+        return showed > $scope.filteredOrders.length ? $scope.filteredOrders.length : showed
+      }
+
       $scope.$on('dateChange', function(event, mass) {
         $scope.filteredOrders = $filter('filter')($scope.orders, function(element) {
           date = Date.parse(element.created_at)
@@ -100,6 +105,7 @@
       }
     };
   });
+
   appOrder.controller('DatepickerCtrl', function($scope) {
     $scope.opened = []
     $scope.today = function() {

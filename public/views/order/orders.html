@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-sm-3 col-xs-6 filter-result-info">
           <span>
-            Showing {{filteredOrders.length}}/{{allOrderSize}} entries
+            Showing {{numPerPage * (currentPage -1 ) }} - {{showCurrentState()}} from {{filteredOrders.length}} entries
           </span>
         </div>
         <div class="col-sm-9 col-xs-6" ng-controller="DatepickerCtrl">

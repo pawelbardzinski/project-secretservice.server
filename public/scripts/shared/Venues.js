@@ -30,6 +30,10 @@
         $scope.select(1);
         return $scope.currentPage = 1;
       };
+      $scope.showCurrentState = function() {
+        var showed = $scope.numPerPage * $scope.currentPage
+        return showed > $scope.filteredVenues.length ? $scope.filteredVenues.length : showed
+      }
       $scope.search = function() {
         $scope.filteredVenues = $filter('filter')($scope.venues, $scope.searchKeywords);
         return $scope.onFilterChange();

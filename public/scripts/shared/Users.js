@@ -34,6 +34,10 @@
         $scope.filteredUsers = $filter('filter')($scope.users, $scope.searchKeywords);
         return $scope.onFilterChange();
       };
+      $scope.showCurrentState = function() {
+        var showed = $scope.numPerPage * $scope.currentPage
+        return showed > $scope.filteredUsers.length ? $scope.filteredUsers.length : showed
+      }
       $scope.order = function(rowName) {
         if ($scope.row === rowName) {
           return;
