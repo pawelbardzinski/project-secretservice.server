@@ -24,7 +24,7 @@
           return;
         }
         $scope.row = rowName;
-        $scope.orders = $filter('orderBy')($scope.orders, rowName);
+        $scope.filteredOrders = $filter('orderBy')($scope.orders, rowName);
       };
       $scope.numPerPageOpt = [{
         key: "3",
