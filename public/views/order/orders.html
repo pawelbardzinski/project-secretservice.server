@@ -40,6 +40,13 @@
           <tr>
             <th>
               <div class="th">
+                Order Id
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('order_id') " data-ng-class="{active: row == 'order_id'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-order_id') " data-ng-class="{active: row == '-order_id'}"></span>
+              </div>
+            </th>
+            <th>
+              <div class="th">
                 Venue
                 <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('venue') " data-ng-class="{active: row == 'venue'}"></span>
                 <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-venue') " data-ng-class="{active: row == '-venue'}"></span>
@@ -82,6 +89,13 @@
             </th>
             <th>
               <div class="th">
+                Location
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('location') " data-ng-class="{active: row == 'location'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-location') " data-ng-class="{active: row == '-location'}"></span>
+              </div>
+            </th>
+            <th>
+              <div class="th">
                 Date
                 <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('created_at') " data-ng-class="{active: row == 'created_at'}"></span>
                 <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-created_at') " data-ng-class="{active: row == '-created_at'}"></span>
@@ -91,12 +105,14 @@
         </thead>
         <tbody>
           <tr data-ng-repeat="order in filteredOrders | pagination: (currentPage * numPerPage) - numPerPage | limitTo: numPerPage">
+            <td>{{order.order_id}}</td>
             <td>{{order.venue}}</td>
             <td>{{order.user_full_name}}</td>
             <td>{{order.product_name}}</td>
             <td>{{order.total_price | currency}}</td>
             <td>{{order.quantity}}</td>
             <td>{{order.order_status}}</td>
+            <td>{{order.location}}</td>
             <td>{{order.created_at | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
           </tr>
         </tbody>
