@@ -120,6 +120,13 @@
           <tr>
             <th class="with-border">
               <div class="th">
+                Order Id
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('order_id') " data-ng-class="{active: row == 'order_id'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-order_id') " data-ng-class="{active: row == '-order_id'}"></span>
+              </div>
+            </th>
+            <th class="with-border">
+              <div class="th">
                 Venue
                 <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('venue') " data-ng-class="{active: row == 'venue'}"></span>
                 <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-venue') " data-ng-class="{active: row == '-venue'}"></span>
@@ -158,6 +165,13 @@
                 Order status
                 <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('order_status') " data-ng-class="{active: row == 'order_status'}"></span>
                 <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-order_status') " data-ng-class="{active: row == '-order_status'}"></span>
+              </div>
+            </th>
+            <th class="with-border">
+              <div class="th">
+                Location
+                <span class="glyphicon glyphicon-chevron-up" data-ng-click=" order('location') " data-ng-class="{active: row == 'location'}"></span>
+                <span class="glyphicon glyphicon-chevron-down" data-ng-click=" order('-location') " data-ng-class="{active: row == '-location'}"></span>
               </div>
             </th>
             <th class="with-border">
